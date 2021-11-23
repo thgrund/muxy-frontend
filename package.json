@@ -1,0 +1,29 @@
+{
+  "name": "muxy-frontend",
+  "version": "0.0.1",
+  "description": "Frontend for stream performance registration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thgrund/muxy-frontend.git"
+  },
+  "keywords": [
+    "muxy",
+    "stream",
+    "tidalcycles"
+  ],
+  "author": "Thomas Grund",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/thgrund/muxy-frontend/issues"
+  },
+  "homepage": "https://github.com/thgrund/muxy-frontend#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "http-server": "^14.0.0",
+    "requirejs": "^2.3.6"
+  }
+}
