@@ -1,0 +1,21 @@
+.card-body {
+    color: white;
+}
+
+.card-header {
+
+}
+
+.card-time {
+
+}
+
+.card-text {
+
+}
+
+.card-button {
+    background: transparent;
+    border: 2px solid #dbe3e2;
+    color: #dbe3e2;
+}
