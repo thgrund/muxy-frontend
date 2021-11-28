@@ -18,9 +18,22 @@
 
 }
 
-.card-button {
+button {
     background: transparent;
     border: 2px solid #ff7777;
     color: #ff7777;
+    font-size: 90%;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.card-button {
     margin-bottom: 12px;
+}
+
+.card-button-plus {
+    width: 28px;
+    height: 28px;
 }

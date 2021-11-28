@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import PerformanceCard from "./PerformanceCard";
 import '../../assets/css/PerformanceList.css';
 import {  MuxyStreams } from "../types";
+import PerformanceCard from "./PerformanceCard";
 
 interface Props {
     slug: string
