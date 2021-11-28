@@ -7,7 +7,7 @@ function EventPage(): ReactElement {
     const [muxyEvents, setMuxyEvents] = useState<MuxyEvents | null>(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/events?slug=long-night', {
+        fetch('http://localhost:8000/events?slug=longest-night', {
             method: 'get',
             headers: new Headers({
                 "Authorization": "Api-Key y7NuzQbO.4KH0UJaj9wsbSHOFQo3GQL4iQkVl8HpP"
@@ -21,10 +21,10 @@ function EventPage(): ReactElement {
     }, []);
 
     return (
-        <div className="App">
+        <main className="App">
             <EventHeader />
             {muxyEvents && <PerformanceList slug={muxyEvents.results[0]?.slug} />}
-        </div>
+        </main>
     );
 }
 

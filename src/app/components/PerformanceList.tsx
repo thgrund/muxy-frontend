@@ -28,7 +28,7 @@ const PerformanceList = ({slug}: Props): ReactElement => {
     return (
         <div className="performance-list">
             {muxyStreams && muxyStreams.results.map(
-                (muxyStream, index) => (<PerformanceCard key={index} muxyStream={muxyStream} />)
+                (muxyStream, index) => (<PerformanceCard key={index} muxyStream={muxyStream} cycleNo={index+1} />)
             )}
 
         </div>

@@ -1,5 +1,9 @@
+.card {
+    padding-bottom: 4px;
+}
+
 .card-body {
-    color: white;
+    color: #00303b;
 }
 
 .card-header {
@@ -7,7 +11,7 @@
 }
 
 .card-time {
-
+    font-size: 150%;
 }
 
 .card-text {
@@ -16,6 +20,7 @@
 
 .card-button {
     background: transparent;
-    border: 2px solid #dbe3e2;
-    color: #dbe3e2;
+    border: 2px solid #ff7777;
+    color: #ff7777;
+    margin-bottom: 12px;
 }
