@@ -1,5 +1,5 @@
 html {
-  background: #ffce96;
+  background: #f1f2da;
   line-height: 0.5;
   margin: 0 auto;
 }
@@ -50,7 +50,7 @@ p.link-paragraph {
 
 a {
   color: #00303b;
-  font-size: 90%;
+  font-size: 80%;
 }
 
 hr {
