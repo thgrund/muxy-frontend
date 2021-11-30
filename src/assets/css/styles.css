@@ -54,7 +54,8 @@ a {
 }
 
 hr {
-  border-color: #ff7777;
+  width: 30%;
+  border: 20px solid #ffce96;
 }
 
 img {
