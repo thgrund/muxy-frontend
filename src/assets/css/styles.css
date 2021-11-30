@@ -4,9 +4,12 @@ html {
   margin: 0 auto;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 body {
   margin: 0;
-  font-family: monospace;
+  font-kerning: normal;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #00303b;
