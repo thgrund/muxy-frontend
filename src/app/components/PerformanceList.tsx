@@ -9,12 +9,13 @@ interface Props {
 
 const PerformanceList = ({slug}: Props): ReactElement => {
     const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
+    const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
 
     useEffect(() => {
         fetch(`http://localhost:8000/streams?event__slug=${slug}`, {
             method: 'get',
             headers: new Headers({
-                "Authorization": "Api-Key y7NuzQbO.4KH0UJaj9wsbSHOFQo3GQL4iQkVl8HpP"
+                "Authorization": `Api-Key ${muxyApiKey}`
             })
         })
             .then(res => res.json())

@@ -5,12 +5,14 @@ import EventHeader from "./EventHeader";
 
 function EventPage(): ReactElement {
     const [muxyEvents, setMuxyEvents] = useState<MuxyEvents | null>(null);
+    const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
+    const eventSlug: string = (process.env.REACT_APP_EVENT_SLUG as string);
 
     useEffect(() => {
-        fetch('http://localhost:8000/events?slug=longest-night', {
+        fetch(`http://localhost:8000/events?slug=${eventSlug}`, {
             method: 'get',
             headers: new Headers({
-                "Authorization": "Api-Key y7NuzQbO.4KH0UJaj9wsbSHOFQo3GQL4iQkVl8HpP"
+                "Authorization": `Api-Key ${muxyApiKey}`
             })
         })
             .then(res => res.json())
@@ -18,7 +20,7 @@ function EventPage(): ReactElement {
                 setMuxyEvents(data);
             })
             .catch(console.log)
-    }, []);
+    }, [eventSlug]);
 
     return (
         <main className="App">
