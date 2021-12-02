@@ -24,7 +24,7 @@ const PerformanceCard = ({muxyStream, cycleNo}: Props): ReactElement => {
                     </>
                 }
 
-                {inCreateMode && <PerformanceCreateForm />}
+                {inCreateMode && <PerformanceCreateForm muxyStream={muxyStream}/>}
 
                 <hr />
             </div>
