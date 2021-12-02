@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import logo from "../../assets/images/share.png";
+import logo from "../../assets/images/longestnight-square-web_plain.svg";
 
 function EventHeader(): ReactElement {
     return (
