@@ -6,10 +6,11 @@ import EventHeader from "./EventHeader";
 function EventPage(): ReactElement {
     const [muxyEvents, setMuxyEvents] = useState<MuxyEvents | null>(null);
     const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
+    const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
     const eventSlug: string = (process.env.REACT_APP_EVENT_SLUG as string);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/events?slug=${eventSlug}`, {
+        fetch(`${muxyUrl}/events?slug=${eventSlug}`, {
             method: 'get',
             headers: new Headers({
                 "Authorization": `Api-Key ${muxyApiKey}`

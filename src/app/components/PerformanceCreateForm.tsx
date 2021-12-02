@@ -11,11 +11,14 @@ function PerformanceCreateForm({muxyStream}: Props): ReactElement {
     const [description, setDescription] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
-       
+    const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
+
+    console.log(muxyStream);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        fetch(muxyStream.url, {
-            method: 'put',
+        fetch(`${muxyUrl}/streams/`, {
+            method: 'post',
             headers: new Headers({
                 "Authorization": `Api-Key ${muxyApiKey}`,
                 "Content-Type": "application/json",
@@ -27,9 +30,9 @@ function PerformanceCreateForm({muxyStream}: Props): ReactElement {
                 description: description,
                 location: location,
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                event: muxyStream.event,
-                starts_at: muxyStream.starts_at,
-                ends_at: muxyStream.ends_at
+                event: "http://localhost:8000/events/3/", // This needs to come from the muxy event (isn't available right now)
+                starts_at: "2021-12-21T19:00:00Z", // This needs to be calculated before
+                ends_at: "2021-12-21T19:20:00Z" // This needs to be calculated before
             })
         });
     }
