@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-kerning: normal;
   font-family: 'Inter', sans-serif;
-  letter-spacing: -2.85px;
+  letter-spacing: -0.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #00303b;
@@ -57,7 +57,7 @@ a {
 
 hr {
   width: 30%;
-  border: 2% solid #ffce96;
+  border: 2px solid #ffce96;
 }
 
 img {
