@@ -12,7 +12,7 @@
 /build
 
 # misc
-.DS_Store
+.DS_Storehttp://cms-stage.sueddeutsche.de:8080/polopoly/Login.jsp
 .env.local
 .env.development.local
 .env.test.local
