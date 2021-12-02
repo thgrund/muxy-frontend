@@ -4,12 +4,13 @@ html {
   margin: 0 auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://rsms.me/inter/inter.css');
 
 body {
   margin: 0;
   font-kerning: normal;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -2.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #00303b;
@@ -46,6 +47,7 @@ p {
 p.link-paragraph {
   margin: 4px;
   padding: 8px;
+  letter-spacing: -0.85px;
 }
 
 a {
@@ -55,7 +57,7 @@ a {
 
 hr {
   width: 30%;
-  border: 20px solid #ffce96;
+  border: 2% solid #ffce96;
 }
 
 img {
