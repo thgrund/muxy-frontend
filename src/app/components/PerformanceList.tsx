@@ -42,7 +42,6 @@ const PerformanceList = ({ slug, startsAt, endsAt }: Props): ReactElement => {
     const numSlots = diff?.minutes ? diff.minutes / SLOT_DURATION_MIN : 0;
 
     const results = muxyStreams?.results || [];
-    console.log("results", results);
 
     // Build slots array
     const slots = Array.from(Array(numSlots)).map((_, i) => {
@@ -62,8 +61,6 @@ const PerformanceList = ({ slug, startsAt, endsAt }: Props): ReactElement => {
 
       return stream || { starts_at: streamStartsAt, ends_at: streamEndsAt };
     });
-
-    console.log("slots", slots);
 
     return slots
   }, [muxyStreams]);
