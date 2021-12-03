@@ -41,7 +41,7 @@ const PerformanceCard = ({ muxyStream, cycleNo }: Props): ReactElement => {
         ) : (
           <>
             <p className="card-text">{text || "[Empty slot]"}</p>
-            <button className="card-button">Remove</button>
+            {text && <button className="card-button">Remove</button>}
           </>
         )}
 
