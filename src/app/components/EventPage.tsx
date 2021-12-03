@@ -22,11 +22,19 @@ function EventPage(): ReactElement {
             .catch(console.log)
     }, [eventSlug]);
 
+    const event = muxyEvents?.results[0];
+
     return (
-        <main className="App">
-            <EventHeader />
-            {muxyEvents && <PerformanceList slug={muxyEvents.results[0]?.slug} />}
-        </main>
+      <main className="App">
+        <EventHeader />
+        {event && (
+          <PerformanceList
+            slug={event.slug}
+            startsAt={event.starts_at}
+            endsAt={event.ends_at}
+          />
+        )}
+      </main>
     );
 }
 

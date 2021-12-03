@@ -10,8 +10,8 @@ export type MuxyEvent = {
     name: string,
     slug: string,
     description: string,
-    starts_at: Date,
-    ends_at: Date,
+    starts_at: string,
+    ends_at: string,
     active: boolean,
     preparation_time: number,
     rtmp_url: string,
@@ -26,12 +26,17 @@ export type MuxyStream = {
     description: string,
     location: string,
     timezone: string,
-    starts_at: Date,
-    ends_at: Date,
+    starts_at: string,
+    ends_at: string,
     key: string,
-    live_at: Date,
+    live_at: string,
     event: string,
     recordings:	string
+}
+
+export type EmptyMuxyStream = {
+    starts_at: string,
+    ends_at: string,
 }
 
 export type MuxyStreams = {
