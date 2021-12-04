@@ -18,14 +18,15 @@
 
 }
 
-button {
+button, input[type=submit] {
     background: transparent;
     border: 2px solid #ff7777;
     color: #ff7777;
     font-size: 90%;
+    width: auto;
 }
 
-button:hover {
+button:hover, input[type=submit]:hover {
     cursor: pointer;
 }
 

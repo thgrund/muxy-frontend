@@ -26,12 +26,12 @@ export type MuxyStream = {
     description: string,
     location: string,
     timezone: string,
-    starts_at: string,
-    ends_at: string,
-    key: string,
+    key?: string,
     live_at: string,
     event: string,
-    recordings:	string
+    recordings:	string,
+    starts_at: string,
+    ends_at: string
 }
 
 export type EmptyMuxyStream = {

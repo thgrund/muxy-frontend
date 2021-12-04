@@ -1,15 +1,16 @@
 import React, { ReactElement, useState } from "react";
 import "../../assets/css/PerformanceCard.css";
-import { MuxyStream, EmptyMuxyStream } from "../types";
+import { EmptyMuxyStream, MuxyStream } from "../types";
 import PerformanceCreateForm from "./PerformanceCreateForm";
 import { DateTime } from "luxon";
 
 interface Props {
   muxyStream: MuxyStream | EmptyMuxyStream;
   cycleNo: number;
+  eventUrl: string;
 }
 
-const PerformanceCard = ({ muxyStream, cycleNo }: Props): ReactElement => {
+const PerformanceCard = ({ muxyStream, cycleNo, eventUrl }: Props): ReactElement => {
   const [inCreateMode, setInCreateMode] = useState<boolean>(false);
 
   const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat("HH:mm");
@@ -27,7 +28,7 @@ const PerformanceCard = ({ muxyStream, cycleNo }: Props): ReactElement => {
         <p className="card-header">Cycle #{cycleNo}</p>
         <p className="card-time">
           {startsAtHs}-{endsAtHs}{" "}
-          {!inCreateMode && (
+          {!inCreateMode && !text && (
             <button
               className="card-button-plus"
               onClick={() => setInCreateMode(true)}
@@ -37,10 +38,10 @@ const PerformanceCard = ({ muxyStream, cycleNo }: Props): ReactElement => {
           )}
         </p>
         {inCreateMode ? (
-          <PerformanceCreateForm />
+          <PerformanceCreateForm eventUrl={eventUrl} startsAt={muxyStream.starts_at} endsAt={muxyStream.ends_at} />
         ) : (
           <>
-            <p className="card-text">{text || "[Empty slot]"}</p>
+            <p className="card-text">{text || ""}</p>
             {text && <button className="card-button">Remove</button>}
           </>
         )}

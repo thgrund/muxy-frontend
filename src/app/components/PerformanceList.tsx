@@ -6,29 +6,31 @@ import { DateTime } from "luxon";
 
 interface Props {
   slug: string;
+  eventUrl: string;
   startsAt: string;
   endsAt: string;
 }
 
 const SLOT_DURATION_MIN = 20;
 
-const PerformanceList = ({ slug, startsAt, endsAt }: Props): ReactElement => {
-  const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
-  const muxyApiKey: string = process.env.REACT_APP_MUXY_API_KEY as string;
+const PerformanceList = ({slug, eventUrl, startsAt, endsAt}: Props): ReactElement => {
+    const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
+    const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
+    const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
 
-  useEffect(() => {
-    fetch(`http://localhost:8000/streams?event__slug=${slug}`, {
-      method: "get",
-      headers: new Headers({
-        Authorization: `Api-Key ${muxyApiKey}`,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setMuxyStreams(data);
-      })
-      .catch(console.log);
-  }, [slug]);
+    useEffect(() => {
+        fetch(`${muxyUrl}/streams?event__slug=${slug}`, {
+            method: 'get',
+            headers: new Headers({
+                "Authorization": `Api-Key ${muxyApiKey}`
+            })
+        })
+            .then(res => res.json())
+            .then((data) => {
+                setMuxyStreams(data);
+            })
+            .catch(console.log)
+    }, [slug]);
 
   const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
     if (!startsAt || !endsAt) return [];
@@ -71,6 +73,7 @@ const PerformanceList = ({ slug, startsAt, endsAt }: Props): ReactElement => {
         allStreams.map((muxyStream, index) => (
           <PerformanceCard
             key={index}
+            eventUrl={eventUrl}
             muxyStream={muxyStream}
             cycleNo={index + 1}
           />
