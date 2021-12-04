@@ -19,17 +19,17 @@ const PerformanceList = ({slug, eventUrl, startsAt, endsAt}: Props): ReactElemen
     const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
 
     useEffect(() => {
-        fetch(`${muxyUrl}/streams?event__slug=${slug}`, {
-            method: 'get',
-            headers: new Headers({
-                "Authorization": `Api-Key ${muxyApiKey}`
-            })
+      fetch(`${muxyUrl}/streams/?event__slug=${slug}`, {
+        method: "get",
+        headers: new Headers({
+          Authorization: `Api-Key ${muxyApiKey}`,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setMuxyStreams(data);
         })
-            .then(res => res.json())
-            .then((data) => {
-                setMuxyStreams(data);
-            })
-            .catch(console.log)
+        .catch(console.error);
     }, [slug]);
 
   const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {

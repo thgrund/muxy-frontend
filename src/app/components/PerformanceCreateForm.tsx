@@ -18,27 +18,28 @@ function PerformanceCreateForm({eventUrl, startsAt, endsAt}: Props): ReactElemen
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         fetch(`${muxyUrl}/streams/`, {
-            method: 'post',
-            headers: new Headers({
-                "Authorization": `Api-Key ${muxyApiKey}`,
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }),
-            body: JSON.stringify({
-                publisher_name: name,
-                publisher_email: email,
-                description: description,
-                location: location,
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                event: eventUrl, // This needs to come from the muxy event (isn't available right now)
-                starts_at: startsAt, // This needs to be calculated before
-                ends_at: endsAt // This needs to be calculated before
-            })
-        }).then(res => res.json())
-            .then((data) => {
-                setStreamKey(data.key);
-            })
-            .catch(console.log);
+          method: "post",
+          headers: new Headers({
+            Authorization: `Api-Key ${muxyApiKey}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          }),
+          body: JSON.stringify({
+            publisher_name: name,
+            publisher_email: email,
+            description: description,
+            location: location,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            event: eventUrl, // This needs to come from the muxy event (isn't available right now)
+            starts_at: startsAt, // This needs to be calculated before
+            ends_at: endsAt, // This needs to be calculated before
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setStreamKey(data.key);
+          })
+          .catch(console.error);
     }
 
     return (

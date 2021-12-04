@@ -10,17 +10,17 @@ function EventPage(): ReactElement {
     const eventSlug: string = (process.env.REACT_APP_EVENT_SLUG as string);
 
     useEffect(() => {
-        fetch(`${muxyUrl}/events?slug=${eventSlug}`, {
-            method: 'get',
-            headers: new Headers({
-                "Authorization": `Api-Key ${muxyApiKey}`
-            })
+      fetch(`${muxyUrl}/events/?slug=${eventSlug}`, {
+        method: "get",
+        headers: new Headers({
+          Authorization: `Api-Key ${muxyApiKey}`,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setMuxyEvents(data);
         })
-            .then(res => res.json())
-            .then((data) => {
-                setMuxyEvents(data);
-            })
-            .catch(console.log)
+        .catch(console.error);
     }, [eventSlug]);
 
     const event = muxyEvents?.results[0];
