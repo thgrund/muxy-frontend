@@ -1,14 +1,21 @@
 import React, { ReactElement } from 'react';
 import logo from "../../assets/images/longestnight-square-web_plain.svg";
+import { MuxyEvent } from "../types";
+import { DateTime } from "luxon";
 
-function EventHeader(): ReactElement {
+interface Props {
+    event: MuxyEvent | undefined
+}
+
+function EventHeader({event}:Props): ReactElement {
     return (
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h4>Tidal Club Presents ...</h4>
             <h1>The Longest Night</h1>
-            <h2>December 21st - December 22nd</h2>
-            <h2>2021</h2>
+            <h2>December 21st {event && DateTime.fromISO(event.starts_at).toFormat("HH:mm")} - December 22nd {event && DateTime.fromISO(event.ends_at).toFormat("HH:mm")} 2021</h2>
+            <hr/>
+            <h2>Your timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}</h2>
             <hr/>
             <h3>Signups Opening Soon!</h3>
             <h4>Watch this space...</h4>

@@ -27,7 +27,7 @@ function EventPage(): ReactElement {
 
     return (
       <main className="App">
-        <EventHeader />
+        <EventHeader event={event} />
         {event && (
           <PerformanceList
             slug={event.slug}
