@@ -51,7 +51,7 @@ function PerformanceDestroyForm({ streamUrl, onRemove }: Props): ReactElement {
 
           {failed && (
             <p style={{ color: "red" }}>
-              Something went wrong, please try again.
+              Something went wrong, did you entered the incorrect stream key? Please try again.
             </p>
           )}
           <input

@@ -4,6 +4,7 @@ import { EmptyMuxyStream, MuxyStream } from "../types";
 import PerformanceCreateForm from "./PerformanceCreateForm";
 import PerformanceDestroyForm from "./PerformanceDestroyForm";
 import { DateTime } from "luxon";
+import PerformanceEditForm from "./PerformanceEditForm";
 
 interface Props {
   muxyStream: MuxyStream | EmptyMuxyStream;
@@ -17,19 +18,35 @@ const PerformanceCard = ({
   eventUrl,
 }: Props): ReactElement => {
   const [inCreateMode, setInCreateMode] = useState<boolean>(false);
+  const [currMuxyStream, setCurrMuxyStream] = useState<MuxyStream | EmptyMuxyStream>(muxyStream);
   const [inRemoveMode, setInRemoveMode] = useState<boolean>(false);
+  const [inEditMode, setInEditMode] = useState<boolean>(false);
   const [removed, setRemoved] = useState<boolean>(false);
 
   const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat("HH:mm");
   const endsAtHs = DateTime.fromISO(muxyStream.ends_at).toFormat("HH:mm");
 
   let text = null;
-  if ("publisher_name" in muxyStream) {
-    const { publisher_name, location, description, timezone } = muxyStream;
+  if ("publisher_name" in currMuxyStream) {
+    const { publisher_name, location, description, timezone } = currMuxyStream;
     text = [publisher_name, location, description, timezone].join(" / ");
   }
 
-  const handleRemoveClick = () => setInRemoveMode((prevState) => !prevState);
+  const resetFormStates = () => {
+    setInCreateMode(false);
+    setInRemoveMode(false);
+    setInEditMode(false);
+  }
+
+  const handleEditClick = () => {
+    resetFormStates();
+    setInEditMode((prevState) => !prevState)
+  };
+
+  const handleRemoveClick = () => {
+    resetFormStates();
+    setInRemoveMode((prevState) => !prevState);
+  }
   const handleRemove = () => setRemoved(true);
 
   return (
@@ -51,20 +68,31 @@ const PerformanceCard = ({
         {inCreateMode ? (
           <PerformanceCreateForm
             eventUrl={eventUrl}
-            startsAt={muxyStream.starts_at}
-            endsAt={muxyStream.ends_at}
+            startsAt={currMuxyStream.starts_at}
+            endsAt={currMuxyStream.ends_at}
           />
         ) : (
           <>
-            <p className="card-text">{removed ? "[REMOVED]" : text || ""}</p>
+            <p className="card-text">{removed ? "" : text || ""}</p>
             {!removed && text && (
               <>
+                <button onClick={handleEditClick} className="card-button">
+                  Edit
+                </button>
                 <button onClick={handleRemoveClick} className="card-button">
                   Remove
                 </button>
-                {inRemoveMode && "url" in muxyStream && (
+                {inEditMode && "url" in currMuxyStream && (
+                    <PerformanceEditForm
+                        streamUrl={currMuxyStream.url}
+                        currMuxyStream={currMuxyStream}
+                        onSetInEditMode={setInEditMode}
+                        setCurrMuxyStream={setCurrMuxyStream}
+                    />
+                )}
+                {inRemoveMode && "url" in currMuxyStream && (
                   <PerformanceDestroyForm
-                    streamUrl={muxyStream.url}
+                    streamUrl={currMuxyStream.url}
                     onRemove={handleRemove}
                   />
                 )}

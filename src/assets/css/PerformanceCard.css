@@ -32,6 +32,7 @@ button:hover, input[type=submit]:hover {
 
 .card-button {
     margin-bottom: 12px;
+    margin-right: 8px;
 }
 
 .card-button-plus {
