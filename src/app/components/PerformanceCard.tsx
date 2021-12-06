@@ -23,8 +23,8 @@ const PerformanceCard = ({
   const [inEditMode, setInEditMode] = useState<boolean>(false);
   const [removed, setRemoved] = useState<boolean>(false);
 
-  const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat("HH:mm");
-  const endsAtHs = DateTime.fromISO(muxyStream.ends_at).toFormat("HH:mm");
+  const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat("HH:mm LLL dd");
+  const endsAtHs = DateTime.fromISO(muxyStream.ends_at).toFormat("HH:mm LLL dd");
 
   let text = null;
   if ("publisher_name" in currMuxyStream) {
