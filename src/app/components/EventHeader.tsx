@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import logo from "../../assets/images/longestnight-square-web_plain.svg";
+import logo from "../../assets/images/longestnight-sunset-2.0.svg";
 import { MuxyEvent } from "../types";
 import { DateTime } from "luxon";
 import ProgressBar from "@ramonak/react-progress-bar";
