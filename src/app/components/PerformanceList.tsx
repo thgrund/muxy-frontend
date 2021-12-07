@@ -9,14 +9,16 @@ interface Props {
   eventUrl: string;
   startsAt: string;
   endsAt: string;
+  setReservedStreamCount: (reservedStreamCount: number | null) => void;
+  setTotalStreamCount: (ttalStreamCount: number | null) => void;
 }
 
 const SLOT_DURATION_MIN = 20;
 
-const PerformanceList = ({slug, eventUrl, startsAt, endsAt}: Props): ReactElement => {
-    const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
+const PerformanceList = ({slug, eventUrl, startsAt, endsAt, setReservedStreamCount, setTotalStreamCount}: Props): ReactElement => {
     const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
     const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
+    const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
 
     useEffect(() => {
       fetch(`${muxyUrl}/streams/?event__slug=${slug}`, {
@@ -66,6 +68,9 @@ const PerformanceList = ({slug, eventUrl, startsAt, endsAt}: Props): ReactElemen
 
     return slots
   }, [muxyStreams]);
+
+  setReservedStreamCount(muxyStreams ? muxyStreams.results.length: 0);
+  setTotalStreamCount(allStreams ? allStreams.length: 0);
 
   return (
     <div className="performance-list">

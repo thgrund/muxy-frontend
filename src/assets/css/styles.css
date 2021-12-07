@@ -88,3 +88,14 @@ input {
   justify-content: center;
   font-size: calc(2px + 2vmin);
 }
+
+.wrapper {
+  width: 24%
+}
+
+.label {
+  font-size: 100%;
+  font-weight: bold;
+  color: black;
+  vertical-align: text-bottom;
+}
