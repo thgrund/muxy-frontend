@@ -31,8 +31,8 @@ function EventHeader({event, reservedStreamCount, totalStreamCount}:Props): Reac
     return (
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h4>Tidal Club Presents ...</h4>
-            <h1>The Longest Night</h1>
+            <h4>TOPLAP Presents ...</h4>
+            <h1>Solstice Stream 2023</h1>
             <h2> {event && DateTime.fromISO(event.starts_at).toFormat("dd. LLLL HH:mm")} - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")} {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}</h2>
             <hr/>
 
