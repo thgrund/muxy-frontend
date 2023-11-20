@@ -15,6 +15,7 @@ jobs:
           node-version: 16
       - name: Install and Build
         run: |
+          npm i
           npm ci
           npm run build
       - name: Deploy
