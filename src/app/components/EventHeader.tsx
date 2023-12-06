@@ -51,8 +51,7 @@ function EventHeader({event, reservedStreamCount, totalStreamCount}:Props): Reac
 
             <hr/>
             <p>Your timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
-            <p className="link-paragraph"><a href={"https://www.youtube.com/eulerroom/live"}>https://www.youtube.com/eulerroom/live</a></p>
-            <p className="link-paragraph"><a href={"https://www.twitch.tv/eulerroom"}>https://www.twitch.tv/eulerroom</a></p>
+            <p className="link-paragraph"><a href={"https://www.eulerroom.com"}>https://www.eulerroom.com/</a></p>
         </header>
     );
 }
