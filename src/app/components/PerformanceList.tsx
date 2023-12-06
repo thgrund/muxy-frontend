@@ -13,7 +13,7 @@ interface Props {
   setTotalStreamCount: (ttalStreamCount: number | null) => void;
 }
 
-const SLOT_DURATION_MIN = 20;
+const SLOT_DURATION_MIN = 15;
 
 const PerformanceList = ({slug, eventUrl, startsAt, endsAt, setReservedStreamCount, setTotalStreamCount}: Props): ReactElement => {
     const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
