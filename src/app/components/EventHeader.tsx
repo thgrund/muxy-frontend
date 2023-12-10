@@ -38,8 +38,8 @@ function EventHeader({event, reservedStreamCount, totalStreamCount}:Props): Reac
 
             <ProgressBar
                 className="wrapper"
-                bgColor={"#ffce96"}
-                baseBgColor={"#bbbbbb54"}
+                bgColor={"#a9c27c"}
+                baseBgColor={"#ffffff"}
                 labelClassName="label"
                 labelAlignment={"outside"}
                 width={"100%"}

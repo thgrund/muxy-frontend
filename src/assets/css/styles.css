@@ -1,5 +1,5 @@
 html {
-  background: #f1f2da;
+  background: #e5ddee;
   line-height: 0.5;
   margin: 0 auto;
 }
@@ -13,7 +13,7 @@ body {
   letter-spacing: -0.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #00303b;
+  color: #240f15;
 }
 
 main {
@@ -30,7 +30,7 @@ h1 {
 }
 
 h2 {
-  color: #ff7777;
+  color: #3b8577;
 }
 
 h1, h2, h3 {
@@ -57,7 +57,7 @@ a {
 
 hr {
   width: 30%;
-  border: 2px solid #ffce96;
+  border: 2px solid #e2c2c5;
 }
 
 img {
