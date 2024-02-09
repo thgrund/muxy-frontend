@@ -33,6 +33,7 @@ function PerformanceCreateForm({
         publisher_name: name,
         publisher_email: email,
         title: title,
+        description: description,
         location: location,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         event: eventUrl, // This needs to come from the muxy event (isn't available right now)
