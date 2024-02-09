@@ -4,12 +4,12 @@ html {
   margin: 0 auto;
 }
 
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
 body {
   margin: 0;
   font-kerning: normal;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   letter-spacing: -0.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,19 +21,21 @@ main {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 h1 {
-  font-size: clamp(200%,3vw,300%);
+  font-size: clamp(200%, 3vw, 300%);
 }
 
 h2 {
   color: #3b8577;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-size: 200%;
   font-weight: 800;
   margin: 0 auto;
@@ -70,6 +72,10 @@ input {
   margin-bottom: 8px;
   height: 24px;
 }
+textarea {
+  width: 100%;
+  margin-bottom: 8px;
+}
 
 .App {
   text-align: center;
@@ -90,7 +96,7 @@ input {
 }
 
 .wrapper {
-  width: 24%
+  width: 24%;
 }
 
 .label {

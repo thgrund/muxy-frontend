@@ -92,12 +92,13 @@ function PerformanceCreateForm({
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-          <input
+          <textarea
             id="description"
-            type="text"
             placeholder="Description (used for archive videos)"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            rows={3}
+            maxLength={1000}
           />
           <input
             id="location"
