@@ -18,35 +18,41 @@ const PerformanceCard = ({
   eventUrl,
 }: Props): ReactElement => {
   const [inCreateMode, setInCreateMode] = useState<boolean>(false);
-  const [currMuxyStream, setCurrMuxyStream] = useState<MuxyStream | EmptyMuxyStream>(muxyStream);
+  const [currMuxyStream, setCurrMuxyStream] = useState<
+    MuxyStream | EmptyMuxyStream
+  >(muxyStream);
   const [inRemoveMode, setInRemoveMode] = useState<boolean>(false);
   const [inEditMode, setInEditMode] = useState<boolean>(false);
   const [removed, setRemoved] = useState<boolean>(false);
 
-  const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat("HH:mm LLL dd");
-  const endsAtHs = DateTime.fromISO(muxyStream.ends_at).toFormat("HH:mm LLL dd");
+  const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat(
+    "HH:mm LLL dd"
+  );
+  const endsAtHs = DateTime.fromISO(muxyStream.ends_at).toFormat(
+    "HH:mm LLL dd"
+  );
 
   let text = null;
   if ("publisher_name" in currMuxyStream) {
-    const { publisher_name, location, description, timezone } = currMuxyStream;
-    text = [publisher_name, location, description, timezone].join(" / ");
+    const { publisher_name, location, title, timezone } = currMuxyStream;
+    text = [publisher_name, location, title, timezone].join(" / ");
   }
 
   const resetFormStates = () => {
     setInCreateMode(false);
     setInRemoveMode(false);
     setInEditMode(false);
-  }
+  };
 
   const handleEditClick = () => {
     resetFormStates();
-    setInEditMode((prevState) => !prevState)
+    setInEditMode((prevState) => !prevState);
   };
 
   const handleRemoveClick = () => {
     resetFormStates();
     setInRemoveMode((prevState) => !prevState);
-  }
+  };
   const handleRemove = () => setRemoved(true);
 
   return (
@@ -83,12 +89,12 @@ const PerformanceCard = ({
                   Remove
                 </button>
                 {inEditMode && "url" in currMuxyStream && (
-                    <PerformanceEditForm
-                        streamUrl={currMuxyStream.url}
-                        currMuxyStream={currMuxyStream}
-                        onSetInEditMode={setInEditMode}
-                        setCurrMuxyStream={setCurrMuxyStream}
-                    />
+                  <PerformanceEditForm
+                    streamUrl={currMuxyStream.url}
+                    currMuxyStream={currMuxyStream}
+                    onSetInEditMode={setInEditMode}
+                    setCurrMuxyStream={setCurrMuxyStream}
+                  />
                 )}
                 {inRemoveMode && "url" in currMuxyStream && (
                   <PerformanceDestroyForm
